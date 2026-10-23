@@ -14,90 +14,63 @@ import java.util.Scanner;
         Scanner agregarNombre = new Scanner(System.in);
         Scanner buscarNombre = new Scanner(System.in);
         Scanner borrarNombre = new Scanner(System.in);
-        Scanner salir = new Scanner(System.in);
-        Scanner op = new Scanner(System.in);
+
+
+        for(int i = 0; i < 2 ; ++i){
+            System.out.println("Agregue al Alumno");
+            String agregarName = agregarNombre.nextLine();
+            nombres.add(agregarName);
+        }
 
         while(true){
-            System.out.println("Agregue un Alumno ! ");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("Eliga una opcion : ");
-            System.out.println("1-agregar Alumno : ");
-            System.out.println("2-Ver Alumnos Agregados ");
-            System.out.println("3-borrar Alumnos");
-            System.out.println("4-Salir del Gestor De alumnos ! ");
-            System.out.println("");
-            System.out.println("");
-            int opciones = op.nextInt();
-            boolean alumno = false;
-            switch (opciones){
-                case 1:
-                    while(true){
-                        boolean punto = false;
-                        boolean valor = false;
-                        boolean numero = false;
-
-
-                        System.out.println("Agregue el nombre del alumno ! ");
-                        System.out.println("");
-                        String alumno1 = agregarNombre.nextLine();
-
-                        if(alumno1.contains(".")){
-                            System.out.println("No debe de contener punto");
-                            punto = true;
-                        }else if(alumno1.isBlank() || alumno1 == null){
-                            System.out.println("Error: no debe ser un valor nulo ");
-                            valor = true;
-                        }else{
-                            System.out.println("Se agrego Correctamente El Alumno ! ");
-                            nombres.add(alumno1);
-                            alumno = true;
-                            System.out.println("");
-                            System.out.println("Quiere agregar Mas Alumnos ? 1/2");
-                            int salirse = salir.nextInt();
-                            if(salirse == 1) {
-                                System.out.println("Se salio ");
-                                break;
-                            }
-
-                        }
-
-
-
-
-                    } case 2:
-                        if(alumno == false){
-                            System.out.println("Error: tienes que tener agregado a un estudiante");
-
-                        }
-                        while(alumno == true){
-                            System.out.println("Ponga el nombre para ver el alumno ! ");
-                            System.out.println("");
-                            String alumnoBuscar = buscarNombre.nextLine();
-                            for(String buscar : nombres){
-                                System.out.println(buscar);
-                            }
-
-                        }
-
+            System.out.println("ponga el nombre del alumno a buscar ! ");
+            String buscarName = buscarNombre.nextLine();
+            for(String buscador2: nombres){
+                if(buscarName.equals(buscador2)){
+                    System.out.println("Su alumno : " +buscarName + " fue encontrado Correctamente");
+                    break;
+                }else if(!buscarName.equals(buscador2)){
+                    System.out.println("Alumno No registrado ! ");
+                }
             }
+                break;
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("ponga el nombre del alumno que quiera borrar ! ");
+        System.out.println("");
+        String borrarAlumno = borrarNombre.nextLine();
+        for (String almB : nombres){
+            if(borrarAlumno.equals(almB)){
+                nombres.remove(borrarAlumno);
+                System.out.println("Se borro correctamente el Alumno :  " +borrarAlumno);
+            }else{
+                System.out.println("Alumno No encontrado ");
+            }
 
         }
 
+
+
+
+
+
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ }
+
+
